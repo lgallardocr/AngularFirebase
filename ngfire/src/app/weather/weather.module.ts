@@ -7,16 +7,18 @@ import { WeatherItemComponent } from './weather-item/weather-item.component';
 import { WeatherSearchComponent } from './weather-search/weather-search.component';
 import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../shared/material.module';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
 
 
-@NgModule({
-  declarations: [WeatherViewComponent, WeatherItemComponent, WeatherSearchComponent],
+@NgModule({  
   imports: [
     CommonModule,
     SharedModule,
     MaterialModule,
-    WeatherRoutingModule
+    WeatherRoutingModule,
+    NgxAuthFirebaseUIModule
   ],
+  declarations: [WeatherViewComponent, WeatherItemComponent, WeatherSearchComponent],
   exports: [WeatherViewComponent, WeatherItemComponent, WeatherSearchComponent]
 })
 export class WeatherModule { }

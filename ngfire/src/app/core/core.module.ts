@@ -4,6 +4,7 @@ import { SharedModule } from '../shared/shared.module';
 import { MaterialModule } from '../shared/material.module';
 import { ToolbarComponent } from '../ui/toolbar/toolbar.component';
 import { RouterModule } from '@angular/router';
+import { FirebaseModule } from './firebase.module';
 
 
 
@@ -13,7 +14,8 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     SharedModule,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    FirebaseModule
   ],
   exports: [
     ToolbarComponent
