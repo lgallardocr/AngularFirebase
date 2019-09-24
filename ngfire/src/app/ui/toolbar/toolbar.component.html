@@ -9,7 +9,7 @@
       <a
        mat-list-item 
        class='menu-link'
-       [routerLink]="['/user/cities']"
+       [routerLink]="['/user/cities', (userAuth.user$ | async)?.uid || 'all']"
        *ngIf="(userAuth.user$ | async)?.uid">Saved Cities</a>      
     </mat-nav-list>
   </mat-sidenav>

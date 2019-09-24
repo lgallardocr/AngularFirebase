@@ -10,7 +10,7 @@ const routes: Routes = [{
   pathMatch: 'full',
   component: LoginComponent
 },{
-  path: 'cities',
+  path: 'cities/:id',
   pathMatch: 'full',
   component: SavedCitiesComponent
 },{

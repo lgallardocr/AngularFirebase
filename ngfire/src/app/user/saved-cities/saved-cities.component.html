@@ -1,1 +1,77 @@
-<p>saved-cities works!</p>
+<div 
+fxLayout='row'
+fxLayoutAlign='space-around start'
+class="top-container">
+    <div fxFlex='30%' fxFlexOffset='250px'>
+        <form class="example-form">
+
+            <mat-form-field class="example-full-width">
+                <input matInput 
+                    name="name"
+                    placeholder="City Name" 
+                    [(ngModel)]="city.name">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput 
+                    name="description"
+                    placeholder="Description" 
+                    [(ngModel)]="city.description">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput 
+                    name="temperature"
+                    placeholder="Temperature" 
+                    [(ngModel)]="city.temperature">
+            </mat-form-field>    
+            
+            <div 
+                *ngIf="editForm"                
+                class="class-row"
+                style="margin-left: 10px;">
+                <button mat-raised-button 
+                    color='primary'
+                    (click)='saveCityUpdate(city)' >Update</button>
+            </div>
+        </form>
+    </div>
+
+    <div fxFlex='40%'>
+            <mat-accordion *ngFor="let item of cities">
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                        (closed)="panelOpenState = false">
+                    <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        {{item?.weather.name}}
+                    </mat-panel-title>
+                    <mat-panel-description>
+                        {{item?.weather.description}} | Temp: {{item?.weather.temperature | number:'1.0-0'}}
+                    </mat-panel-description>
+                    </mat-expansion-panel-header>   
+                    
+                    <div style="text-align: center">
+                        <button 
+                            mat-button mat-suffix mat-icon-button
+                            color='warn'
+                            aria-label="Delete"
+                            matTooltip='Delete city'
+                            class="delete-button"
+                            (click)='deleteCity(item.id)'>
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                        <button 
+                            mat-button mat-suffix mat-icon-button
+                            color='primary'
+                            aria-label="Update"
+                            matTooltip="Update City"
+                            (click)='updateCity(item)'
+                            class="update-button">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </div>
+
+                </mat-expansion-panel>
+            
+            </mat-accordion>
+    </div>
+
+</div>
